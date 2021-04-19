@@ -19,23 +19,35 @@ include 'auth.php';
 </body>
 </html>
 <?php
-//connect
-include 'db.php';
-$sql ="SELECT username FROM examusers";
-$cmd = $db->prepare($sql);
-$cmd->execute();
-$username = $cmd->fetchAll();
-if (!$username){
+
+    // connect
+    include 'db.php';
+
+    // fetch selected item
+    $sql = "SELECT * FROM examusers";
+    $cmd = $db->prepare($sql);
+    $cmd->bindParam(':username', $username, PDO::PARAM_INT);
+    $cmd->execute();
+    $username = $cmd->fetch(); // use fetch for as single record
+
+    if  (!$username) {
     echo '<div class="alert alert-danger">No User found</div>';
 }
-else{
-    echo '<table class="table table-striped table-light sortable">
-    <thead>
-                <th><a>User</a></th>';
-
+    else{
+        echo "Username: " + $username;
 }
+    echo "Add profile picture: ";
+ echo '<td>'; // show photo if any
+    if (!empty($indPhoto['photo'])) {
+    echo '<img src="img/profile-uploads/' . $indPhoto['photo'] . '"
+               alt="Profile Photo" class="thumbnail" />';
+    }
+    echo '</td>';
+    ?>
+<button>ADD PICTURE</button>
+
+<?php
 $db =null;
-?>
-<?php include 'footer.php'; ?>
+include 'footer.php'; ?>
 
 
