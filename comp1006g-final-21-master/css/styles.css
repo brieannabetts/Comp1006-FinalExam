@@ -1,0 +1,24 @@
+/* custom styles & bootstrap overrides */
+.primary, .bg-primary, .btn-primary, .custom-primary {
+    background-color: #03A9F4;
+}
+
+.bg-dark, .bg-footer {
+    background-color: #607D8B;
+}
+
+.form-group {
+    padding-bottom: 10px;
+}
+
+.thumbnail {
+    width: 75px;
+}
+
+a {
+    color: #03A9F4;
+}
+
+.grecaptcha-badge {
+    bottom: 110px !important;
+}
