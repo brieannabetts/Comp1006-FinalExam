@@ -35,6 +35,7 @@ if ($ok) {
 
     // 7. show confirmation message to user
     echo "<h1>Category Saved</h1>";
+    header('location:categories.php');
 }
 
 ?>

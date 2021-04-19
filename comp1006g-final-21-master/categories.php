@@ -1,5 +1,6 @@
 <?php $pageTitle = "Categories";
-include 'header.php'; ?>
+include 'header.php';
+include 'auth.php'?>
 
     <h1>Categories</h1>
 <?php
@@ -33,7 +34,11 @@ if (!empty($_SESSION['username'])) {
         <button class="btn btn-primary">Search</button>
         <a class="btn btn-primary" href="categories.php">Clear</a>
     </form>
-    <nav>categories</nav>
+    <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="category-details.php">Categories</a>
+    </li>
+    </ul>
 </section>
 <?php
 
